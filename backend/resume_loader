@@ -1,0 +1,21 @@
+from __future__ import annotations
+
+import os
+import tempfile
+from typing import BinaryIO
+
+from langchain.document_loaders import PyPDFLoader
+
+
+def load_pdf_bytes(pdf_bytes: bytes) -> str:
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
+        tmp.write(pdf_bytes)
+        tmp_path = tmp.name
+    try:
+        loader = PyPDFLoader(tmp_path)
+        docs = loader.load()
+        text = "\n".join(doc.page_content for doc in docs)
+    finally:
+        os.remove(tmp_path)
+    return text.strip()
+
