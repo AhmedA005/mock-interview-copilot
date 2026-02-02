@@ -5,7 +5,7 @@ API client for communicating with the backend service.
 from typing import Dict, Optional, Tuple
 import requests
 
-from .config import config
+from config import config
 
 
 class APIClient:

@@ -12,7 +12,7 @@ class Config:
     # Update these with your actual backend URL and API key
     API_URL: str = os.getenv(
         "API_URL",
-        "http://localhost:8000/interview"
+        "https://unexpendable-intercounty-tuan.ngrok-free.dev/interview"
     )
     API_KEY: str = os.getenv("API_KEY", "secret123")
 
