@@ -3,7 +3,6 @@ Main application entry point.
 Creates and configures the FastAPI application.
 """
 
-import os
 import shutil
 import subprocess
 import threading
